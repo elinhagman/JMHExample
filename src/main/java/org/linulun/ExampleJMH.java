@@ -24,7 +24,16 @@ public class ExampleJMH {
         TimeUnit.MILLISECONDS.sleep(100);
     }
 
+    @Benchmark
+    @BenchmarkMode(Mode.SingleShotTime)
+    @OutputTimeUnit(TimeUnit.MICROSECONDS)
+    public void measureSingleShot2() throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(200);
+    }
+
     public static void main(String[] args) throws Exception{
+
+         
         Options opt = new OptionsBuilder().include(ExampleJMH.class.getSimpleName()).forks(1).verbosity(VerboseMode.SILENT).build();
 
         Collection<RunResult> result = new Runner(opt).run();
@@ -37,8 +46,6 @@ public class ExampleJMH {
 
         
         String output = outputStream.toString("UTF8");
-
-        System.out.println(output);
     }
 
 }
