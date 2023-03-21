@@ -2,4 +2,4 @@ language: java
 buildTool: maven
 include:
   - ExampleJMH
-forks: 2
+forks: 1
