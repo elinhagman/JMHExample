@@ -1,5 +1,2 @@
 language: java
 buildTool: maven
-include:
-  - ExampleJMH
-forks: 1
